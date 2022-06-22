@@ -3,8 +3,8 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const{
-    PORT,
     NODE_ENV,
+    PORT,
     POSTGRES_HOST,
     POSTGRES_PORT,
     POSTGRES_DB,
@@ -16,9 +16,11 @@ const{
     TOKEN,
 } = process.env
 
+console.log(NODE_ENV)
+
 export default {
-    port: parseInt(PORT as unknown as string),
     node_env: NODE_ENV,
+    port: parseInt(PORT as unknown as string),
     db_host: POSTGRES_HOST,
     db_port: parseInt(POSTGRES_PORT as unknown as string),
     db: POSTGRES_DB,
