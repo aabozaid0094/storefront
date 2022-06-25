@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-portgit
+
+# Build
+build
