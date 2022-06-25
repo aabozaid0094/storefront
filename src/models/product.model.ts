@@ -31,7 +31,7 @@ export default class ProductStore {
         }
     }
 
-    async show(product_id: Number): Promise<Product> {
+    async show(product_id: number): Promise<Product> {
         try {
             const connection = await client.connect()
             const query = 'SELECT * FROM products WHERE product_id=($1)'
@@ -44,7 +44,7 @@ export default class ProductStore {
     }
 
     async edit(
-        product_id: Number,
+        product_id: number,
         modified_product: Product
     ): Promise<Product> {
         try {
@@ -64,7 +64,7 @@ export default class ProductStore {
         }
     }
 
-    async delete(product_id: Number): Promise<Product> {
+    async delete(product_id: number): Promise<Product> {
         try {
             const connection = await client.connect()
             const query =

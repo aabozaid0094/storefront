@@ -37,7 +37,7 @@ export default class UserStore {
         }
     }
 
-    async show(user_id: Number): Promise<User> {
+    async show(user_id: number): Promise<User> {
         try {
             const connection = await client.connect()
             const query = 'SELECT * FROM users WHERE user_id=($1)'
@@ -49,7 +49,7 @@ export default class UserStore {
         }
     }
 
-    async edit(user_id: Number, modified_user: User): Promise<User> {
+    async edit(user_id: number, modified_user: User): Promise<User> {
         try {
             const connection = await client.connect()
             const query =
@@ -68,7 +68,7 @@ export default class UserStore {
         }
     }
 
-    async delete(user_id: Number): Promise<User> {
+    async delete(user_id: number): Promise<User> {
         try {
             const connection = await client.connect()
             const query = 'DELETE FORM users WHERE user_id = $1 returning *'
