@@ -4,8 +4,6 @@ import bcrypt from 'bcrypt'
 import { User } from '../../types/user.type'
 
 const userStore = new UserStore()
-const hashPassword = (password: string) =>
-    bcrypt.hashSync(`${password}${config.pepper}`, config.salt_rounds)
 const compareUsers = (toCompareUser: User, toCompareWithUser: User): boolean => {
     return  toCompareUser.user_id === toCompareWithUser.user_id 
     && toCompareUser.user_email === toCompareWithUser.user_email 
