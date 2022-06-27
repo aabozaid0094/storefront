@@ -23,7 +23,7 @@ export default class UserStore {
         try {
             const connection = await client.connect()
             const query =
-                'INSERT INTO users (user_email, user_first_name, user_last_name, user_password_hash) VALUES ($1,$2,$3,$4) returning *'
+                'INSERT INTO users (user_email, user_first_name, user_last_name, user_password) VALUES ($1,$2,$3,$4) returning *'
             const result = await connection.query(query, [
                 user.user_email,
                 user.user_first_name,
@@ -53,7 +53,7 @@ export default class UserStore {
         try {
             const connection = await client.connect()
             const query =
-                'UPDATE users SET user_email = $2, user_first_name = $3, user_last_name = $4, user_password_hash = $5, WHERE user_id = $1 returning *'
+                'UPDATE users SET user_email = $2, user_first_name = $3, user_last_name = $4, user_password = $5 WHERE user_id = $1 returning *'
             const result = await connection.query(query, [
                 user_id,
                 modified_user.user_email,
@@ -71,7 +71,7 @@ export default class UserStore {
     async delete(user_id: number): Promise<User> {
         try {
             const connection = await client.connect()
-            const query = 'DELETE FORM users WHERE user_id = $1 returning *'
+            const query = 'DELETE FROM users WHERE user_id = $1 returning *'
             const result = await connection.query(query, [user_id])
             connection.release()
             return result.rows[0]

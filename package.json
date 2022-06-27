@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "description": "",
   "main": "server.ts",
-  "type": "module",
   "scripts": {
     "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
     "lint": "eslint . --ext .ts",
     "build": "npx tsc",
     "start": "node build/server",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-    "test": "SET NODE_ENV=test db-migrate --env test up && jasmine-ts && db-migrate db:drob stTest",
+    "test": "SET NODE_ENV=test&&db-migrate up --env test&&jasmine&&db-migrate reset --env test",
     "tsc": "tsc"
   },
   "author": "Udacity",
@@ -37,7 +36,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "jasmine": "^4.2.1",
     "jasmine-spec-reporter": "^7.0.0",
-    "jasmine-ts": "^0.4.0",
     "prettier": "^2.7.1",
     "ts-node": "^10.8.1",
     "tsc-watch": "^5.0.3",

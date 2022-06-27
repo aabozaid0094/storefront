@@ -16,18 +16,16 @@ const {
     TOKEN,
 } = process.env
 
-console.log(NODE_ENV)
-
 export default {
-    node_env: NODE_ENV,
+    node_env: NODE_ENV as unknown as string,
     port: parseInt(PORT as unknown as string),
-    db_host: POSTGRES_HOST,
+    db_host: POSTGRES_HOST as unknown as string,
     db_port: parseInt(POSTGRES_PORT as unknown as string),
-    db: POSTGRES_DB,
-    db_test: POSTGRES_DBTest,
-    db_user: POSTGRES_USER,
-    db_password: POSTGRES_PASSWORD,
+    db: POSTGRES_DB as unknown as string,
+    db_test: POSTGRES_DBTest as unknown as string,
+    db_user: POSTGRES_USER as unknown as string,
+    db_password: POSTGRES_PASSWORD as unknown as string,
     salt_rounds: parseInt(SALT_ROUNDS as unknown as string),
-    pepper: PEPPER,
-    token: TOKEN,
+    pepper: PEPPER as unknown as string,
+    token: TOKEN as unknown as string,
 }

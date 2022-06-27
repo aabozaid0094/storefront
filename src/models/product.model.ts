@@ -50,7 +50,7 @@ export default class ProductStore {
         try {
             const connection = await client.connect()
             const query =
-                'UPDATE products SET product_name = $2, product_price = $3, product_category = $4, WHERE product_id = $1 returning *'
+                'UPDATE products SET product_name = $2, product_price = $3, product_category = $4 WHERE product_id = $1 returning *'
             const result = await connection.query(query, [
                 product_id,
                 modified_product.product_name,
@@ -68,7 +68,7 @@ export default class ProductStore {
         try {
             const connection = await client.connect()
             const query =
-                'DELETE FORM products WHERE product_id = $1 returning *'
+                'DELETE FROM products WHERE product_id = $1 returning *'
             const result = await connection.query(query, [product_id])
             connection.release()
             return result.rows[0]
