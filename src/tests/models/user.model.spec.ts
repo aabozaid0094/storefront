@@ -4,12 +4,20 @@ import bcrypt from 'bcrypt'
 import { User } from '../../types/user.type'
 
 const userStore = new UserStore()
-const compareUsers = (toCompareUser: User, toCompareWithUser: User): boolean => {
-    return  toCompareUser.user_id === toCompareWithUser.user_id 
-    && toCompareUser.user_email === toCompareWithUser.user_email 
-    && toCompareUser.user_first_name === toCompareWithUser.user_first_name 
-    && toCompareUser.user_last_name === toCompareWithUser.user_last_name 
-    && bcrypt.compareSync(`${toCompareUser.user_password}${config.pepper}`, toCompareWithUser.user_password)
+const compareUsers = (
+    toCompareUser: User,
+    toCompareWithUser: User
+): boolean => {
+    return (
+        toCompareUser.user_id === toCompareWithUser.user_id &&
+        toCompareUser.user_email === toCompareWithUser.user_email &&
+        toCompareUser.user_first_name === toCompareWithUser.user_first_name &&
+        toCompareUser.user_last_name === toCompareWithUser.user_last_name &&
+        bcrypt.compareSync(
+            `${toCompareUser.user_password}${config.pepper}`,
+            toCompareWithUser.user_password
+        )
+    )
 }
 
 describe('User Model Methods Definitions', () => {

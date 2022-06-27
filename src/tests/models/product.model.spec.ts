@@ -20,26 +20,17 @@ describe('Product Model Methods Definitions', () => {
     })
 })
 describe('Product Model Methods Are Functioning', () => {
-    afterAll( async ()=>{
-        const allProd = await productStore.index()
-        if (allProd.length>0) {
-            console.log("product_price");
-            console.log(allProd[0].product_price);
-            console.log("typeof product_price");
-            console.log(typeof allProd[0].product_price);
-        }
-    })
     it('create method should add a product', async () => {
         const created_product = {
             product_name: 'product_name',
-            product_price: 10.00,
+            product_price: 10.0,
             product_category: 'product_category',
         }
         const result = await productStore.create(created_product)
         expect(result).toEqual({
             product_id: 1,
             product_name: 'product_name',
-            product_price: 10.00,
+            product_price: 10.0,
             product_category: 'product_category',
         })
     })
@@ -49,7 +40,7 @@ describe('Product Model Methods Are Functioning', () => {
             {
                 product_id: 1,
                 product_name: 'product_name',
-                product_price: 10.00,
+                product_price: 10.0,
                 product_category: 'product_category',
             },
         ])
@@ -57,14 +48,14 @@ describe('Product Model Methods Are Functioning', () => {
     it('edit method should return the modified product', async () => {
         const modified_product = {
             product_name: 'product_name_modified',
-            product_price: 15.00,
+            product_price: 15.0,
             product_category: 'product_category_modified',
         }
         const result = await productStore.edit(1, modified_product)
         expect(result).toEqual({
             product_id: 1,
             product_name: 'product_name_modified',
-            product_price: 15.00,
+            product_price: 15.0,
             product_category: 'product_category_modified',
         })
     })
@@ -73,7 +64,7 @@ describe('Product Model Methods Are Functioning', () => {
         expect(result).toEqual({
             product_id: 1,
             product_name: 'product_name_modified',
-            product_price: 15.00,
+            product_price: 15.0,
             product_category: 'product_category_modified',
         })
     })
@@ -82,7 +73,7 @@ describe('Product Model Methods Are Functioning', () => {
         expect(result).toEqual({
             product_id: 1,
             product_name: 'product_name_modified',
-            product_price: 15.00,
+            product_price: 15.0,
             product_category: 'product_category_modified',
         })
     })
