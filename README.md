@@ -29,17 +29,17 @@ The application use the following libraries:
 
 [comment]: <> (**NOTE** It is important to remember that there might not be a one to one ratio between data shapes and database tables. Data shapes only outline the structure of objects being passed between frontend and API, the database may need multiple tables to store a single shape. )
 #### ENV Variables:-
--NODE_ENV
--PORT
--POSTGRES_HOST
--POSTGRES_PORT
--POSTGRES_DB
--POSTGRES_DBTest
--POSTGRES_USER
--POSTGRES_PASSWORD
--SALT_ROUNDS
--PEPPER
--TOKEN
+- NODE_ENV
+- PORT
+- POSTGRES_HOST
+- POSTGRES_PORT
+- POSTGRES_DB
+- POSTGRES_DBTest
+- POSTGRES_USER
+- POSTGRES_PASSWORD
+- SALT_ROUNDS
+- PEPPER
+- TOKEN
 
 ### 2.  DB Creation and Migrations
 
@@ -48,21 +48,21 @@ The application use the following libraries:
 [comment]: <> (You must also ensure that any sensitive information is hashed with bcrypt. If any passwords are found in plain text in your application it will not pass.)
 
 #### To prepare the database(postgres is used):-
--Create two databases for the app/test with relevant names, for example, storefront/storefrontTest, using cmd as follows:-
---create user stUser with password 'stUserPass';
---create database storefront;
---create database storefrontTest;
---grant all privileges on database storefront to stUser;
---grant all privileges on database storefrontTest to stUser;
--Migrate database tables with the 'up' command `db-migrate up` or `npm run devMigrate`
--For testing, migrating/clearing the database is included in the test command of `npm run test`
--Environment relative variables names are self-explanatory and are put in a .env file in the root directory, they are as follows:-
---POSTGRES_HOST
---POSTGRES_PORT
---POSTGRES_DB
---POSTGRES_DBTest
---POSTGRES_USER
---POSTGRES_PASSWORD 
+- Create two databases for the app/test with relevant names, for example, storefront/storefrontTest, using cmd as follows:-
+-- create user stUser with password 'stUserPass';
+-- create database storefront;
+-- create database storefrontTest;
+-- grant all privileges on database storefront to stUser;
+-- grant all privileges on database storefrontTest to stUser;
+- Migrate database tables with the 'up' command `db-migrate up` or `npm run devMigrate`
+- For testing, migrating/clearing the database is included in the test command of `npm run test`
+- Environment relative variables names are self-explanatory and are put in a .env file in the root directory, they are as follows:-
+-- POSTGRES_HOST
+-- POSTGRES_PORT
+-- POSTGRES_DB
+-- POSTGRES_DBTest
+-- POSTGRES_USER
+-- POSTGRES_PASSWORD 
 
 ### 3. Models
 
