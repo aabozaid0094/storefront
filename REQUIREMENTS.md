@@ -5,9 +5,11 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## API Endpoints
 #### Products
-- Index 
-- Show
-- Create [token required]
+- Index('/product/')==>GET
+- Show('/product/:product_id')==>GET
+- Create [token required]('/product/')==>POST
+- Edit [token required](/product'/:product_id')==>PATCH
+- delete [token required]('/product/:product_id')==>DELETE
 - [OPTIONAL] Top 5 most popular products 
 - [OPTIONAL] Products by category (args: product category)
 
