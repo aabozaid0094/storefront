@@ -11,23 +11,25 @@ The application use the following libraries:
 - dotenv from npm for managing environment variables
 - db-migrate from npm for migrations
 - jasmine from npm for testing
-[//]: # (- jsonwebtoken from npm for working with JWTs )
+<!--- - jsonwebtoken from npm for working with JWTs -->
 
 ## Steps to Completion
 
 ### 1. Plan to Meet Requirements
 
-[//]: # (In this repo there is a `REQUIREMENTS.md` document which outlines what this API needs to supply for the frontend, as well as the agreed upon data shapes to be passed between front and backend. This is much like a document you might come across in real life when building or extending an API. )
+<!---
+In this repo there is a `REQUIREMENTS.md` document which outlines what this API needs to supply for the frontend, as well as the agreed upon data shapes to be passed between front and backend. This is much like a document you might come across in real life when building or extending an API.
 
-[//]: # (Your first task is to read the requirements and update the document with the following:)
-[//]: # (- Determine the RESTful route for each endpoint listed. Add the RESTful route and HTTP verb to the document so that the frontend developer can begin to build their fetch requests.)    
-[//]: # (**Example**: A SHOW route: 'blogs/:id' [GET] )
+(Your first task is to read the requirements and update the document with the following:
+- Determine the RESTful route for each endpoint listed. Add the RESTful route and HTTP verb to the document so that the frontend developer can begin to build their fetch requests.
+**Example**: A SHOW route: 'blogs/:id' [GET]
 
-[//]: # (- Design the Postgres database tables based off the data shape requirements. Add to the requirements document the database tables and columns being sure to mark foreign keys.   )
-[//]: # (**Example**: You can format this however you like but these types of information should be provided)
-[//]: # (Table: Books (id:varchar, title:varchar, author:varchar, published_year:varchar, publisher_id:string[foreign key to publishers table], pages:number) )
+- Design the Postgres database tables based off the data shape requirements. Add to the requirements document the database tables and columns being sure to mark foreign keys.
+**Example**: You can format this however you like but these types of information should be provided
+Table: Books (id:varchar, title:varchar, author:varchar, published_year:varchar, publisher_id:string[foreign key to publishers table], pages:number)
 
-[//]: # (**NOTE** It is important to remember that there might not be a one to one ratio between data shapes and database tables. Data shapes only outline the structure of objects being passed between frontend and API, the database may need multiple tables to store a single shape. )
+(**NOTE** It is important to remember that there might not be a one to one ratio between data shapes and database tables. Data shapes only outline the structure of objects being passed between frontend and API, the database may need multiple tables to store a single shape.
+-->
 #### ENV Variables:-
 - NODE_ENV
 - PORT
@@ -43,9 +45,11 @@ The application use the following libraries:
 
 ### 2.  DB Creation and Migrations
 
-[//]: # (Now that you have the structure of the databse outlined, it is time to create the database and migrations. Add the npm packages dotenv and db-migrate that we used in the course and setup your Postgres database. If you get stuck, you can always revisit the database lesson for a reminder.)
+<!---
+Now that you have the structure of the databse outlined, it is time to create the database and migrations. Add the npm packages dotenv and db-migrate that we used in the course and setup your Postgres database. If you get stuck, you can always revisit the database lesson for a reminder.
 
-[//]: # (You must also ensure that any sensitive information is hashed with bcrypt. If any passwords are found in plain text in your application it will not pass.)
+You must also ensure that any sensitive information is hashed with bcrypt. If any passwords are found in plain text in your application it will not pass.
+-->
 
 #### To prepare the database(postgres is used):-
 - Create two databases for the app/test with relevant names, for example, storefront/storefrontTest, using cmd as follows:-
@@ -58,6 +62,7 @@ The application use the following libraries:
 - For testing, migrating/clearing the database is included in the test command of `npm run test`
 - Environment relative variables names are self-explanatory and are put in a .env file in the root directory, they are as follows (POSTGRES_HOST, POSTGRES_PORT, POSTGRES_DB, POSTGRES_DBTest, POSTGRES_USER, POSTGRES_PASSWORD) 
 
+<!---
 ### 3. Models
 
 Create the models for each database table. The methods in each model should map to the endpoints in `REQUIREMENTS.md`. Remember that these models should all have test suites and mocks.
@@ -75,3 +80,4 @@ Add JWT functionality as shown in the course. Make sure that JWTs are required f
 Before submitting, make sure that your project is complete with a `README.md`. Your `README.md` must include instructions for setting up and running your project including how you setup, run, and connect to your database. 
 
 Before submitting your project, spin it up and test each endpoint. If each one responds with data that matches the data shapes from the `REQUIREMENTS.md`, it is ready for submission!
+-->
