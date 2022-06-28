@@ -3,6 +3,7 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import config from './config'
 import productRoute from './routes/product.route'
+import userRoute from './routes/user.route'
 
 const usablePort: number = config.port
     ? (config.port as unknown as number)
@@ -20,6 +21,7 @@ app.use(cors(corsOptions))
 app.use(bodyParser.json())
 
 app.use('/product', productRoute)
+app.use('/user', userRoute)
 
 app.get('/', function (req: Request, res: Response) {
     res.send('Storefront Home')
