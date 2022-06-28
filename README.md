@@ -49,20 +49,14 @@ The application use the following libraries:
 
 #### To prepare the database(postgres is used):-
 - Create two databases for the app/test with relevant names, for example, storefront/storefrontTest, using cmd as follows:-
--- create user stUser with password 'stUserPass';
--- create database storefront;
--- create database storefrontTest;
--- grant all privileges on database storefront to stUser;
--- grant all privileges on database storefrontTest to stUser;
+`create user stUser with password 'stUserPass';`
+`create database storefront;`
+`create database storefrontTest;`
+`grant all privileges on database storefront to stUser;`
+`grant all privileges on database storefrontTest to stUser;`
 - Migrate database tables with the 'up' command `db-migrate up` or `npm run devMigrate`
 - For testing, migrating/clearing the database is included in the test command of `npm run test`
-- Environment relative variables names are self-explanatory and are put in a .env file in the root directory, they are as follows:-
--- POSTGRES_HOST
--- POSTGRES_PORT
--- POSTGRES_DB
--- POSTGRES_DBTest
--- POSTGRES_USER
--- POSTGRES_PASSWORD 
+- Environment relative variables names are self-explanatory and are put in a .env file in the root directory, they are as follows (POSTGRES_HOST, POSTGRES_PORT, POSTGRES_DB, POSTGRES_DBTest, POSTGRES_USER, POSTGRES_PASSWORD) 
 
 ### 3. Models
 
