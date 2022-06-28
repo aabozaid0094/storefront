@@ -12,11 +12,9 @@ productRoute.get('/', async (req: Request, res: Response) => {
 
 productRoute.get('/:product_id', async (req: Request, res: Response) => {
     const product = await productStore.show(
-        parseInt(req.query.product_id as unknown as string)
+        parseInt(req.params.product_id as unknown as string)
     )
-    console.log(
-        `Product show route: ${req.query.product_id as unknown as string}`
-    )
+    console.log(`Product show route: ${JSON.stringify(product)}`)
     res.json(product)
 })
 
@@ -27,28 +25,24 @@ productRoute.post('/', async (req: Request, res: Response) => {
         product_price,
         product_category,
     })
-    console.log(`Product create route: ${product}`)
+    console.log(`Product create route: ${JSON.stringify(product)}`)
     res.json(product)
 })
 productRoute.patch('/:product_id', async (req: Request, res: Response) => {
     const { product_name, product_price, product_category } = req.body
     const modifiedProduct = await productStore.edit(
-        parseInt(req.query.product_id as unknown as string),
+        parseInt(req.params.product_id as unknown as string),
         { product_name, product_price, product_category }
     )
-    console.log(`Product edit route: ${modifiedProduct}`)
+    console.log(`Product edit route: ${JSON.stringify(modifiedProduct)}`)
     res.json(modifiedProduct)
 })
 
 productRoute.delete('/:product_id', async (req: Request, res: Response) => {
     const deletedProduct = await productStore.delete(
-        parseInt(req.query.product_id as unknown as string)
+        parseInt(req.params.product_id as unknown as string)
     )
-    console.log(
-        `Product delete route: ${
-            req.query.product_id as unknown as string
-        }, ${deletedProduct}`
-    )
+    console.log(`Product delete route: ${JSON.stringify(deletedProduct)}`)
     res.json(deletedProduct)
 })
 
