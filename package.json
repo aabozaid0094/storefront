@@ -9,6 +9,7 @@
     "devMigrate": "db-migrate up",
     "build": "npx tsc",
     "start": "node build/server",
+    "combostart": "npm run prettier&&npm run lint&&npm run build&&npm run start",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
     "test": "SET NODE_ENV=test&&db-migrate up --env test&&jasmine&&db-migrate reset --env test",
     "tsc": "tsc"
