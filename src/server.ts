@@ -4,7 +4,9 @@ import bodyParser from 'body-parser'
 import config from './config'
 import productRoute from './routes/product.route'
 
-const usablePort: number = config.port ? (config.port as unknown as number) : 3000
+const usablePort: number = config.port
+    ? (config.port as unknown as number)
+    : 3000
 
 const app: express.Application = express()
 const address: string = `0.0.0.0:${usablePort}`
