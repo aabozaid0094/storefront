@@ -1,5 +1,7 @@
+import config from '../config'
 import express, { Request, Response } from 'express'
 import UserStore from '../models/user.model'
+import jwt from 'jsonwebtoken'
 
 const userRoute = express.Router()
 const userStore = new UserStore()
@@ -18,7 +20,7 @@ userRoute.get('/:user_id', async (req: Request, res: Response) => {
     res.json(user)
 })
 
-userRoute.post('/', async (req: Request, res: Response) => {
+userRoute.post('/register', async (req: Request, res: Response) => {
     const { user_email, user_first_name, user_last_name, user_password } =
         req.body
     const user = await userStore.create({
@@ -30,6 +32,23 @@ userRoute.post('/', async (req: Request, res: Response) => {
     console.log(`User create route: ${JSON.stringify(user)}`)
     res.json(user)
 })
+
+userRoute.post('/login', async (req: Request, res: Response) => {
+    const { user_email, user_password } =
+        req.body
+    const loggedUser = await userStore.login(
+        user_email, user_password
+    )
+    if (loggedUser != null) {
+        const user_token = jwt.sign(loggedUser, config.token)
+        res.status(200).send({
+            status: "Loged Successfully",
+            message: "Loged Successfully",
+            data: {...loggedUser, user_token},
+        })
+    }
+})
+
 userRoute.patch('/:user_id', async (req: Request, res: Response) => {
     const { user_email, user_first_name, user_last_name, user_password } =
         req.body

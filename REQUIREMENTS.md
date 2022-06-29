@@ -5,8 +5,8 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## API Endpoints
 #### Products
-- Index('/product/')==>GET
-- Show('/product/:product_id')==>GET
+- Index ('/product/')==>GET
+- Show ('/product/:product_id')==>GET
 - Create [token required]('/product/')==>POST
 - Edit [token required](/product'/:product_id')==>PATCH
 - delete [token required]('/product/:product_id')==>DELETE
@@ -17,6 +17,13 @@ These are the notes from a meeting with the frontend developer that describe wha
 - Index [token required]
 - Show [token required]
 - Create N[token required]
+
+- Index ('/user/')==>GET
+- Show ('/user/:user_id')==>GET
+- Create/Register ('/user/register')==>POST
+- Login ('/user/login')==>POST
+- Edit [token required](/user'/:user_id')==>PATCH
+- delete [token required]('/user/:user_id')==>DELETE
 
 #### Orders
 - Current Order by user (args: user id)[token required]

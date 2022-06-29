@@ -4,5 +4,4 @@ CREATE TABLE users (
 	user_first_name VARCHAR(255) NOT NULL,
 	user_last_name VARCHAR(255) NOT NULL,
 	user_password VARCHAR(255) NOT NULL
-	user_token VARCHAR(255) NULL
 );

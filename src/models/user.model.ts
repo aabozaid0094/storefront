@@ -49,6 +49,28 @@ export default class UserStore {
         }
     }
 
+    async login(user_email: string, user_password: string): Promise<User|null> {
+        try {
+            const connection = await client.connect()
+            const query = 'SELECT user_password FROM users WHERE user_email=($1)'
+            const result = await connection.query(query, [user_email])
+            if (result.rows.length) {
+                const valid_user_password_hash = result.rows[0]
+                const passwordIsValid = bcrypt.compareSync(`${user_password}${config.pepper}`, valid_user_password_hash)
+                if (passwordIsValid) {
+                    const userQuery = 'SELECT user_email, user_first_name, user_last_name FROM users WHERE user_email=($1)'
+                    const userResult = await connection.query(userQuery, [user_email])
+                    console.log(userResult)
+                    return userResult.rows[0]
+                }
+            }
+            connection.release()
+            return null
+        } catch (error) {
+            throw new Error(`Cannot login user ${user_email}: ${error}`)
+        }
+    }
+
     async edit(user_id: number, modified_user: User): Promise<User> {
         try {
             const connection = await client.connect()
